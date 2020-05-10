@@ -66,19 +66,21 @@ static const char *rangercmd[]  = { "st", "-e", "ranger", NULL };
 static const char *htopcmd[]  = { "st", "-e", "htop", NULL };
 static const char *browser[]  = { "xdg-open", "about:newtab", NULL };
 static const char *slockcmd[]  = { "slock", NULL };
+static const char *muttcmd[]  = { "st", "-e", "mutt", NULL };
 static const char *ttrvcmd[]  = { "st", "-e", "ttrv", NULL };
 
 static Key keys[] = {
 
     /* custom keys */
-    { MODKEY|ControlMask,           XK_m,       spawn,          {.v = rangercmd } },
-    { MODKEY|ControlMask,           XK_h,       spawn,          {.v = htopcmd } },
-    { MODKEY|ControlMask,           XK_b,       spawn,          {.v = browser } },
+    { SUPERKEY|ControlMask,           XK_m,       spawn,          {.v = rangercmd } },
+    { SUPERKEY|ControlMask,           XK_h,       spawn,          {.v = htopcmd } },
+    { SUPERKEY|ControlMask,           XK_b,       spawn,          {.v = browser } },
     { SUPERKEY|ControlMask,         XK_l,       spawn,          {.v = slockcmd } },
+    { SUPERKEY|ControlMask,         XK_e,       spawn,          {.v = muttcmd } },
     { SUPERKEY|ControlMask,         XK_t,       spawn,          {.v = ttrvcmd } },
 	/* modifier                     key        function        argument */
 	{ SUPERKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ControlMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ SUPERKEY|ControlMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ SUPERKEY,                       XK_b,      togglebar,      {0} },
 	{ SUPERKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ SUPERKEY,                       XK_k,      focusstack,     {.i = -1 } },
