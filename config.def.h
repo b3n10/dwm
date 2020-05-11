@@ -71,40 +71,47 @@ static const char *ttrvcmd[]  = { "st", "-e", "ttrv", NULL };
 
 static Key keys[] = {
 
-    /* custom keys */
-    { SUPERKEY|ControlMask,           XK_m,       spawn,          {.v = rangercmd } },
-    { SUPERKEY|ControlMask,           XK_h,       spawn,          {.v = htopcmd } },
-    { SUPERKEY|ControlMask,           XK_b,       spawn,          {.v = browser } },
-    { SUPERKEY|ControlMask,         XK_l,       spawn,          {.v = slockcmd } },
-    { SUPERKEY|ControlMask,         XK_e,       spawn,          {.v = muttcmd } },
-    { SUPERKEY|ControlMask,         XK_t,       spawn,          {.v = ttrvcmd } },
 	/* modifier                     key        function        argument */
-	{ SUPERKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ SUPERKEY|ControlMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ SUPERKEY,                       XK_b,      togglebar,      {0} },
-	{ SUPERKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ SUPERKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ SUPERKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ SUPERKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ SUPERKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ SUPERKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ SUPERKEY,                       XK_Return, zoom,           {0} },
+
+    /* custom keys */
+    { SUPERKEY|ControlMask,         XK_m,      spawn,          {.v = rangercmd } },
+    { SUPERKEY|ControlMask,         XK_h,      spawn,          {.v = htopcmd } },
+    { SUPERKEY|ControlMask,         XK_b,      spawn,          {.v = browser } },
+    { SUPERKEY|ControlMask,         XK_l,      spawn,          {.v = slockcmd } },
+    { SUPERKEY|ControlMask,         XK_e,      spawn,          {.v = muttcmd } },
+    { SUPERKEY|ControlMask,         XK_t,      spawn,          {.v = ttrvcmd } },
+
+	{ SUPERKEY,                     XK_p,      spawn,          {.v = dmenucmd } },
+	{ SUPERKEY|ControlMask,         XK_Return, spawn,          {.v = termcmd } },
+	{ SUPERKEY,                     XK_b,      togglebar,      {0} },
+	{ SUPERKEY,                     XK_j,      focusstack,     {.i = +1 } },
+	{ SUPERKEY,                     XK_k,      focusstack,     {.i = -1 } },
+	{ SUPERKEY,                     XK_i,      incnmaster,     {.i = +1 } },
+	{ SUPERKEY,                     XK_d,      incnmaster,     {.i = -1 } },
+	{ SUPERKEY,                     XK_h,      setmfact,       {.f = -0.05} },
+	{ SUPERKEY,                     XK_l,      setmfact,       {.f = +0.05} },
+
+	{ MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
+	{ MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
+	{ MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
+
+	{ SUPERKEY,                     XK_Return, zoom,           {0} },
 	{ SUPERKEY,                     XK_Tab,    view,           {0} },
-	{ SUPERKEY|ShiftMask,             XK_c,      killclient,     {0} },
-	{ SUPERKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ SUPERKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ SUPERKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ SUPERKEY,                       XK_c,      setlayout,      {.v = &layouts[3]} },
-	{ SUPERKEY,                       XK_space,  setlayout,      {0} },
-	{ SUPERKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+	{ SUPERKEY|ShiftMask,           XK_c,      killclient,     {0} },
+	{ SUPERKEY,                     XK_t,      setlayout,      {.v = &layouts[0]} },
+	{ SUPERKEY,                     XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ SUPERKEY,                     XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ SUPERKEY,                     XK_c,      setlayout,      {.v = &layouts[3]} },
+	{ SUPERKEY,                     XK_space,  setlayout,      {0} },
+	{ SUPERKEY|ShiftMask,           XK_space,  togglefloating, {0} },
     /*
 	{ SUPERKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ SUPERKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
     */
-	{ SUPERKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ SUPERKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ SUPERKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ SUPERKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ SUPERKEY,                     XK_comma,  focusmon,       {.i = -1 } },
+	{ SUPERKEY,                     XK_period, focusmon,       {.i = +1 } },
+	{ SUPERKEY|ShiftMask,           XK_comma,  tagmon,         {.i = -1 } },
+	{ SUPERKEY|ShiftMask,           XK_period, tagmon,         {.i = +1 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -114,7 +121,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ SUPERKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ SUPERKEY|ShiftMask,           XK_q,      quit,           {0} },
 };
 
 /* button definitions */
