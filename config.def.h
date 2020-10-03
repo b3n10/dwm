@@ -69,7 +69,7 @@ static const char *slockcmd[]  = { "slock", NULL };
 static const char *muttcmd[]  = { "st", "-e", "mutt", NULL };
 static const char *ttrvcmd[]  = { "st", "-e", "ttrv", NULL };
 static const char *subscmd[]  = { "bash", "/home/ben/.local/bin/ytsubs/ytsubs", NULL };
-static const char *clipmenucmd[]  = { "bash", "/home/ben/.local/bin/ytsubs/ytsubs", NULL };
+static const char *clipmenucmd[]  = { "clipmenu", NULL };
 
 static Key keys[] = {
 
@@ -92,8 +92,8 @@ static Key keys[] = {
 	{ SUPERKEY,                     XK_k,      focusstack,     {.i = -1 } },
 	{ SUPERKEY,                     XK_i,      incnmaster,     {.i = +1 } },
 	{ SUPERKEY,                     XK_d,      incnmaster,     {.i = -1 } },
-	{ SUPERKEY,                     XK_h,      setmfact,       {.f = -0.05} },
-	{ SUPERKEY,                     XK_l,      setmfact,       {.f = +0.05} },
+	{ SUPERKEY,                     XK_h,      setmfact,       {.f = -0.02} },
+	{ SUPERKEY,                     XK_l,      setmfact,       {.f = +0.02} },
 
 	{ MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
 	{ MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
@@ -126,6 +126,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ SUPERKEY|ShiftMask,           XK_q,      quit,           {0} },
+	{ MODKEY,                       XK_Tab,     focusstack,     {.i = +1 } },
 };
 
 /* button definitions */
